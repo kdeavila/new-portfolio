@@ -1,0 +1,19 @@
+---
+const { timer, icon: Icon, title, desc } = Astro.props;
+---
+
+<article
+    data-aos="fade-up"
+    data-aos-delay={timer}
+    class="p-8 bg-secondary/60 backdrop-blur-sm border
+    border-card rounded-2xl shadow-back shadow-dark"
+>
+    <div class="mb-3">
+        <Icon size={36} />
+    </div>
+
+    <h4 class="font-semibold text-lg mb-1 lg:text-xl">{title}</h4>
+    <p class="text-base text-pretty text-neutral-400">
+        {desc}
+    </p>
+</article>

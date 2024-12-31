@@ -1,0 +1,73 @@
+---
+import Navbar from "./Navbar.astro";
+import SkillCard from "./SkillCard.astro";
+import Code from "@icons/Code.astro";
+import Palette from "@icons/Palette.astro";
+import Stopwatch from "@icons/Stopwatch.astro";
+
+const SKILLS = [
+    {
+        title: "Código limpio",
+        desc: "Escritura de código claro, mantenible y escalable",
+        icon: Code,
+    },
+    {
+        title: "Diseño UX/UI",
+        desc: "Creación de interfaces intuitivas y atractivas",
+        icon: Palette,
+    },
+    {
+        title: "Aprendizaje rápido",
+        desc: "Adaptación ágil a nuevos lenguajes y frameworks",
+        icon: Stopwatch,
+    },
+];
+---
+
+<header class="relative" id="home">
+    <Navbar />
+
+    <section class="relative z-10">
+        <div class="pt-64 pb-72 px-10 lg:px-5">
+            <div class="w-full max-w-5xl mx-auto">
+                <h1
+                    data-aos="fade-right"
+                    class="text-4xl font-bold text-yellow-400 sm:text-5xl md:text-6xl"
+                >
+                    Keyner de Ávila
+                </h1>
+                <h1
+                    data-aos="fade-right"
+                    data-aos-delay="50"
+                    class="text-4xl font-semibold mb-1 md:text-6xl"
+                >
+                    Desarrollador Frontend
+                </h1>
+                <p
+                    data-aos="fade-right"
+                    data-aos-delay="100"
+                    class="w-5/6 text-base text-pretty text-neutral-400 md:text-xl md:mt-2"
+                >
+                    con experiencia en Next.js, Typescript y TailwindCSS.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative z-10 px-10 lg:px-5">
+        <div class="w-full max-w-5xl mx-auto">
+            <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-7">
+                {
+                    SKILLS.map(({ title, desc, icon }, timer) => (
+                        <SkillCard
+                            title={title}
+                            desc={desc}
+                            icon={icon}
+                            timer={timer * 50}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</header>

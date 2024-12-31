@@ -1,0 +1,41 @@
+---
+const { timer, image, title, desc, tags, github, demo } =
+    Astro.props as CardProps;
+import Github from "@icons/Github.astro";
+import Button from "./Button.astro";
+import Tag from "./Tag.astro";
+import ExternalLink from "@icons/External-link.astro";
+---
+
+<article
+    data-aos="fade-up"
+    data-aos-delay={timer}
+    data-aos-duration="500"
+    class="grid grid-cols-1 rounded-2xl shadow-back shadow-dark border border-card overflow-hidden md:grid-cols-5"
+>
+    <div class="w-full h-72 md:order-2 md:col-span-2 md:h-full">
+        <img
+            class="w-full h-full object-cover"
+            src={image}
+            alt="Klasse-makeup | Tienda de maquillaje y accesorios"
+        />
+    </div>
+
+    <div
+        class="flex flex-col justify-center bg-secondary/60 p-6 md:order-1 md:col-span-3 md:p-8"
+    >
+        <h3 class="text-xl font-medium mb-2 lg:text-2xl">{title}</h3>
+        <p class="text-base text-neutral-400 text-pretty mb-2">
+            {desc}
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            {tags.map((tag) => <Tag text={tag} />)}
+        </div>
+
+        <div class="flex gap-x-2">
+            <Button type="github" icon={Github} href={github} text="Github" />
+            <Button type="demo" icon={ExternalLink} href={demo} text="Demo" />
+        </div>
+    </div>
+</article>

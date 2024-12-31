@@ -1,0 +1,76 @@
+---
+import TitleSection from "@components/TitleSection.astro";
+import ProjectCard from "./ProjectCard.astro";
+
+const PROJECTS = [
+    {
+        title: "Klasse-makeup",
+        desc: "Tienda de maquillaje y accesorios con amplio catálogo, filtros avanzados, carrito de compras, pago en línea y funcionalidades adicionales desarrolladas con múltiples tecnologías.",
+        tags: ["Next.js", "React", "Tailwind CSS", "Typescript"],
+        github: "https://github.com/kdeavila/Klasse-Makeup",
+        demo: "https://klassemakeup.netlify.app/",
+        image: "/images/klasse-makeup.webp",
+        timer: 0,
+    },
+    {
+        title: "Youtube Clon",
+        desc: "Clon del sitio web de YouTube construido con Astro y Tailwind, contiene miniaturas que reproducen el video al pasar el mouse con un diseño idéntico al original.",
+        tags: ["Astro", "Javascript", "Typescript", "Tailwind CSS"],
+        github: "https://github.com/kdeavila/youtube-clone",
+        demo: "https://youtube-astro.netlify.app/",
+        image: "/images/youtube-clone.webp",
+        timer: 0,
+    },
+    {
+        title: "Equipos VCR",
+        desc: "Landing page para una empresa portuaria que ofrece servicios de carga y descarga a nivel nacional con altos estándares de calidad y seguridad.",
+        tags: ["HTML", "CSS", "Javascript", "GSAP", "Swiper"],
+        github: "https://github.com/kdeavila/equipos-vcr",
+        demo: "https://equiposvcr.netlify.app",
+        image: "/images/equiposvcr.webp",
+        timer: 0,
+    },
+    {
+        title: "AstroNews",
+        desc: "Moderno boletín de noticias sobre tecnología y desarrollo. Construido con Astro para el rendimiento y Tailwind CSS para un diseño elegante y personalizable.",
+        tags: ["Astro", "Javascript", "Tailwind CSS"],
+        github: "https://github.com/kdeavila/astronewsletter",
+        demo: "https://astronewsletter.netlify.app",
+        image: "/images/astronewsletter.webp",
+        timer: 0,
+    },
+    {
+        title: "Gestor de tareas",
+        desc: "Aplicación que ayuda a gestionar tareas y proyectos estableciendo un nombre, tipo, etiquetas, fecha de vencimiento, responsables y una descripción mediante un árbol binario. También le permite buscar tareas o proyectos por nombre o etiquetas.",
+        tags: ["Python", "Flask", "Boostrap"],
+        github: "https://github.com/kdeavila/task-manager",
+        demo: "https://github.com/kdeavila/task-manager",
+        image: "/images/tasks-manager.webp",
+        timer: 0,
+    },
+];
+---
+
+<section id="projects" class="relative py-56 px-10 lg:px-5">
+    <div class="w-full max-w-5xl mx-auto">
+        <TitleSection title="Proyectos" />
+
+        <div class="grid grid-cols-1 gap-7">
+            {
+                PROJECTS.map(
+                    ({ title, desc, tags, github, demo, image }, timer) => (
+                        <ProjectCard
+                            title={title}
+                            desc={desc}
+                            tags={tags}
+                            github={github}
+                            demo={demo}
+                            image={image}
+                            timer={timer * 50}
+                        />
+                    ),
+                )
+            }
+        </div>
+    </div>
+</section>
