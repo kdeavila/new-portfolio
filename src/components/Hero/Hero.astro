@@ -1,9 +1,15 @@
 ---
+import AnimatedShapes from "@components/AnimatedShapes";
 import Navbar from "./Navbar.astro";
 import SkillCard from "./SkillCard.astro";
 import Code from "@icons/Code.astro";
 import Palette from "@icons/Palette.astro";
 import Stopwatch from "@icons/Stopwatch.astro";
+import Github from "@icons/Github.astro";
+import Linkedin from "@icons/Linkedin.astro";
+import Mail from "@icons/Mail.astro";
+import profileImage from "@images/profile2.jpg";
+import Image from "astro/components/Image.astro";
 
 const SKILLS = [
     {
@@ -28,28 +34,67 @@ const SKILLS = [
     <Navbar />
 
     <section class="relative z-10">
-        <div class="pt-64 pb-72 px-10 lg:px-5">
-            <div class="w-full max-w-5xl mx-auto">
-                <h1
-                    data-aos="fade-right"
-                    class="text-4xl font-bold text-yellow-400 sm:text-5xl md:text-6xl"
+        <AnimatedShapes client:load />
+
+        <div class="pt-48 pb-72 px-10 lg:px-5 lg:pt-56">
+            <div
+                class="w-full max-w-5xl mx-auto flex flex-col lg:items-center lg:flex-row lg:gap-8"
+            >
+                <div
+                    id="hero-image"
+                    class="size-48 shrink-0 border border-purple-500 shadow-lg shadow-dark transform rounded-2xl overflow-hidden mb-6 sm:size-56 lg:size-72 lg:order-2 pointer-events-none"
                 >
-                    Keyner de Ávila
-                </h1>
-                <h1
-                    data-aos="fade-right"
-                    data-aos-delay="50"
-                    class="text-4xl font-semibold mb-1 md:text-6xl"
-                >
-                    Desarrollador Frontend
-                </h1>
-                <p
-                    data-aos="fade-right"
-                    data-aos-delay="100"
-                    class="w-5/6 text-base text-pretty text-neutral-400 md:text-xl md:mt-2"
-                >
-                    con experiencia en Next.js, Typescript y TailwindCSS.
-                </p>
+                    <Image src={profileImage} alt="Foto de Keyner de Ávila" />
+                </div>
+
+                <div class="w-full md:order-1">
+                    <h1
+                        id="hero-title"
+                        class="text-4xl font-bold text-yellow-400 sm:text-5xl md:text-6xl"
+                    >
+                        Keyner de Ávila
+                    </h1>
+                    <h1
+                        id="hero-title-2"
+                        class="text-4xl font-semibold mb-1 sm:text-5xl md:text-6xl"
+                    >
+                        Desarrollador Frontend
+                    </h1>
+                    <p
+                        id="hero-paragraph"
+                        class="w-5/6 text-base text-pretty text-neutral-400 md:text-xl md:mt-2"
+                    >
+                        con experiencia en Next.js, Typescript y TailwindCSS.
+                    </p>
+
+                    <!-- Botones de redes -->
+                    <div
+                        class="w-full flex flex-row space-x-4 mt-6"
+                        id="hero-social"
+                    >
+                        <a
+                            href="https://www.github.com/kdeavila"
+                            class="text-neutral-300/90 transition-colors hover:text-yellow-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            ><Github size={30} stroke={1.5} /></a
+                        >
+                        <a
+                            href="https://www.linkedin.com/in/kdeavila9"
+                            class="text-neutral-300/90 transition-colors hover:text-yellow-400"
+                            target="_blank"
+                            rel="noopener noreferrer"><Linkedin size={30} /></a
+                        >
+                        <a
+                            href="mailto:kddeavila3@gmail.com?subject=Estoy%20interesado%20en%20tus%20servicios&body=Me%20gustaría%20formar%20un%20equipo%20contigo."
+                            class="text-neutral-300/90 transition-colors hover:text-yellow-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Mail size={30} />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -70,4 +115,48 @@ const SKILLS = [
             </div>
         </div>
     </section>
+
+    <style>
+        #hero-image {
+            animation: fadeInUpProfile 600ms both;
+        }
+
+        #hero-title {
+            animation: fadeInUp 600ms both;
+        }
+
+        #hero-title-2 {
+            animation: fadeInUp 600ms 50ms both;
+        }
+
+        #hero-paragraph {
+            animation: fadeInUp 600ms 100ms both;
+        }
+
+        #hero-social {
+            animation: fadeInUp 600ms 150ms both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUpProfile {
+            from {
+                opacity: 0;
+                transform: translateY(100px) rotate(5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(5deg);
+            }
+        }
+    </style>
 </header>

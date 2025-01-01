@@ -1,6 +1,6 @@
 declare global {
     interface CardProps {
-        image: string;
+        image: ImageMetadata;
         title: string;
         desc: string;
         tags: string[];
@@ -10,4 +10,4 @@ declare global {
     }
 }
 
-export { };
+export {};

@@ -12,6 +12,9 @@ export default {
 			boxShadow: {
 				'back': '0 5px 1px'
 			},
+			screens: {
+				xs: '475px'
+			}
 		},
 	},
 	plugins: [],

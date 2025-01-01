@@ -1,5 +1,5 @@
 ---
-const { size } = Astro.props;
+const { size = 24, stroke = 2} = Astro.props;
 ---
 
 <svg
@@ -9,7 +9,7 @@ const { size } = Astro.props;
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    stroke-width={stroke}
     stroke-linecap="round"
     stroke-linejoin="round"
     ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
