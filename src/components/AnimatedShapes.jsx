@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AnimatedShapes = () => {
     return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
             {[...Array(6)].map((_, i) => (
                 <motion.div
                     key={i}
