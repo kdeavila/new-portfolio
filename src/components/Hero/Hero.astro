@@ -1,5 +1,4 @@
 ---
-import AnimatedShapes from "@components/AnimatedShapes";
 import Navbar from "./Navbar.astro";
 import SkillCard from "./SkillCard.astro";
 import Code from "@icons/Code.astro";
@@ -9,7 +8,7 @@ import Github from "@icons/Github.astro";
 import Linkedin from "@icons/Linkedin.astro";
 import Mail from "@icons/Mail.astro";
 import profileImage from "@images/profile.webp";
-import Image from "astro/components/Image.astro";
+import { Image } from 'astro:assets';
 
 const SKILLS = [
     {
@@ -34,8 +33,6 @@ const SKILLS = [
     <Navbar />
 
     <section class="relative z-10">
-        <AnimatedShapes client:load />
-
         <div class="pt-48 pb-72 px-10 lg:px-5 lg:pt-56">
             <div
                 class="w-full max-w-5xl mx-auto flex flex-col lg:items-center lg:flex-row lg:gap-8"
